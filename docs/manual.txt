@@ -1,0 +1,69 @@
+Manual
+	
+	1. Connect Window
+	2. App Window
+	3. Tips and Warnings
+	4. Cool Stuff
+
+
+1.  
+	Connect to a remote server via port 55867 (this port is the application's dedicated port).
+	User enters the remote server's IP address.
+
+
+2.
+	2.1.	File Transferring
+		2.1.1.  Send files to server ('Send File To Server' button is checked)
+			Source Path- the file is located in this path (this path is in the user's machine).
+			Destination Path- the file is saved to this path (this path is in the server's machine).  
+
+		2.1.2.  Get files from server ('Get File From Server' button is checked)
+			Source Path- the file is located on this path (this path is in the server's machine).
+			Destination Path- the file is saved to this path (this path is in the user's machine).
+
+		2.1.3.	File transferring dialog is displayed in the 'Server Log' frame.
+
+	2.2.	Sending shell commands
+		these commands run through the server's shell. Their output is displayed in 'Server Output' frame.
+
+	2.3.	Exit and close
+		Disconnect- disconnect from remote server.
+		Disconnect And Close Server- disconnect from remote server and close it.
+
+
+3.
+	3.1.	Warnings
+		3.1.1.	Writing files to protected areas
+			On Windows machine (with a non-root user on Linux), You cannot send files to C:\ (/root)
+			Generally, we do not recommend you to send files to protected areas of the machine.
+		
+		3.1.2.	When downloading or sending files, the program might appear as "Not Responding", However
+			it just downloads or sends the specified file (usually happens with rather large files).
+
+	3.2.	Tips
+		3.2.1.	Basic commands for Windows machine:
+			cd <DIRECTORY PATH> --> Change directory to specified path (only changes directory for the same command).
+			&& --> Join commands by adding '&&' between them.
+			dir <DIRECTORY PATH> --> Show content of the specified path.
+			del <OBJ PATH> - Delete specified object.
+			shutdown -f -s -t 1 --> Immediate force shut down target's computer.
+			whoami --> Machine's username and some details.
+
+		3.2.2.	Basic commands for Linux machine:
+			cd <DIRECTORY PATH> --> Change directory to specified path (only changes directory for the same command).
+			&& --> Join commands by adding '&&' between them.
+			ls -al --> Show content of current directory (and each file's permissions).
+			pwd --> Show current directory's path.
+			whoami --> Machine's username and some details.
+
+		3.2.3.	Using in-line python
+			If the remote server has python installed you can use command-line python to interact
+			with its python shell by typing: cd <PYTHON.EXE Directory> && python -c "<YOUR CODE>"
+			Each command should be followed by a semi-colon (';').
+
+4.
+	4.1.	Go to the server's python-shell directoy and send this command: python -c "from tkMessageBox import *;
+		[showwarning('Hahahaha','I can see you.',type=OK) for i in range(100)]"
+		(That will probably make your target freak out)
+
+	4.2.	Deleting stuff from target's desktop can be very amusing.
